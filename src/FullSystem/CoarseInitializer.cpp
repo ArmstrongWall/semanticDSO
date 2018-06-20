@@ -778,7 +778,7 @@ void CoarseInitializer::setFirstStereo(	CalibHessian* HCalib, FrameHessian* newF
 	PixelSelector sel(w[0],h[0]);
 
 	float* statusMap =   new float[w[0]*h[0]];
-	char*  semanticMap = new char[w[0]*h[0]];
+	char*  semanticMap = new char[w[0]*h[0]];//dect semanticMap
 	bool*  statusMapB =  new bool[w[0]*h[0]];
 
 	Mat33f K = Mat33f::Identity();
