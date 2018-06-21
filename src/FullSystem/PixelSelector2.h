@@ -30,6 +30,7 @@ namespace dso
 {
 
 enum PixelSelectorStatus {PIXSEL_VOID=0, PIXSEL_1, PIXSEL_2, PIXSEL_3};
+enum Pixel_label {CROSSWALK=0, OTHERS};
 
 
 class FrameHessian;
@@ -41,7 +42,7 @@ public:
 	int makeMaps(
 			const FrameHessian* const fh,
 			float* map_out, float density, int recursionsLeft=1, bool plot=false, float thFactor=1);
-
+	void makesemanticMaps(const FrameHessian* const fh,char* semanticMap_out);
 	PixelSelector(int w, int h);
 	~PixelSelector();
 	int currentPotential;
@@ -49,6 +50,7 @@ public:
 
 	bool allowFast;
 	void makeHists(const FrameHessian* const fh);
+
 private:
 
 	Eigen::Vector3i select(const FrameHessian* const fh,

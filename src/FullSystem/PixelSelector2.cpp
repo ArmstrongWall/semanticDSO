@@ -284,6 +284,16 @@ int PixelSelector::makeMaps(
 	return numHaveSub;
 }
 
+void PixelSelector::makesemanticMaps(const FrameHessian* const fh,char* semanticMap_out)
+{
+	int w = wG[0];
+	int h = hG[0];
+	memset(semanticMap_out,0,w*h*sizeof(Pixel_label));
+	semanticMap_out[0] = CROSSWALK;
+}
+
+
+
 Eigen::Vector3i PixelSelector::select(const FrameHessian* const fh,
 		float* map_out, int pot, float thFactor)
 {

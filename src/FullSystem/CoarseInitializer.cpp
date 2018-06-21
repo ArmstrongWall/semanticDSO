@@ -781,6 +781,8 @@ void CoarseInitializer::setFirstStereo(	CalibHessian* HCalib, FrameHessian* newF
 	char*  semanticMap = new char[w[0]*h[0]];//dect semanticMap
 	bool*  statusMapB =  new bool[w[0]*h[0]];
 
+
+
 	Mat33f K = Mat33f::Identity();
 	K(0,0) = HCalib->fxl();
 	K(1,1) = HCalib->fyl();
@@ -799,7 +801,7 @@ void CoarseInitializer::setFirstStereo(	CalibHessian* HCalib, FrameHessian* newF
 		if(lvl == 0)
 		{
 			npts = sel.makeMaps(firstFrame, statusMap,densities[lvl]*w[0]*h[0],1,false,2);
-
+            sel.makesemanticMaps(firstFrame,semanticMap);
 		}
 		else
 		{

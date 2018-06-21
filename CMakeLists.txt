@@ -140,7 +140,7 @@ if (OpenCV_FOUND AND Pangolin_FOUND)
 			${LIBZIP_LIBRARY}
 			${Pangolin_LIBRARIES}
 			${OpenCV_LIBS}
-			${PROJECT_SOURCE_DIR}/cmake-build-debug/lib/libBino_Stereo_SDK.so
+			${PROJECT_SOURCE_DIR}/thirdparty/libBino_Stereo_SDK.so
 			)
 else()
 	message("--- not building dso_live, since either don't have openCV or Pangolin.")
