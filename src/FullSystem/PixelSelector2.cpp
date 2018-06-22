@@ -289,12 +289,12 @@ void PixelSelector::makesemanticMaps(const FrameHessian* const fh,char* semantic
 	int w = wG[0];//640
 	int h = hG[0];//480
 	memset(semanticMap_out,0,w*h*sizeof(char));
-	for(int i=0; i<h; i++)
-        for (int j = 0; j < w; j++) {
-	    if(j>200 && j<400 && i>160 && i<320) {
-            semanticMap_out[j+i*h] =  CROSSWALK;
+	for(int y=0; y<h; y++)
+        for (int x = 0; x < w; x++) {
+	    if(x>200 && x<400 && y>160 && y<320) {
+            semanticMap_out[x+y*w] =  CROSSWALK;
         } else {
-            semanticMap_out[10] = OTHERS;
+            semanticMap_out[x+y*w] = OTHERS;
 	    }
 	}
 }

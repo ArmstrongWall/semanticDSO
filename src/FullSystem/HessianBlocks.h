@@ -418,6 +418,7 @@ struct PointHessian
 	float energyTH;
 	FrameHessian* host;
 	bool hasDepthPrior;
+	char label;
 
 	float my_type;
 

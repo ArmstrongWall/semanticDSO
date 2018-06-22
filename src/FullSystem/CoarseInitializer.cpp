@@ -823,6 +823,8 @@ void CoarseInitializer::setFirstStereo(	CalibHessian* HCalib, FrameHessian* newF
 
 			    ImmaturePoint* pt = new ImmaturePoint(x, y, firstFrame, statusMap[x+y*wl], HCalib);
 
+			    pt->label=semanticMap[x+y*wl];
+
 			    pt->u_stereo = pt->u;
 		        pt->v_stereo = pt->v;
 

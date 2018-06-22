@@ -371,8 +371,8 @@ int main( int argc, char** argv )
 
 
 	paraList.devPath = "/dev/video1";
-	paraList.intParameterPath = "params/intrinsics.yml";
-	paraList.extParameterPath = "params/extrinsics.yml";
+	paraList.intParameterPath = "thirdparty/params/intrinsics.yml";
+	paraList.extParameterPath = "thirdparty/params/extrinsics.yml";
 
 	camera.reset(new BinoCamera(paraList));
 

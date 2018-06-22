@@ -31,6 +31,7 @@
 //#include <GL/glu.h>
 
 #include <pangolin/pangolin.h>
+#include <FullSystem/PixelSelector2.h>
 #include "KeyFrameDisplay.h"
 #include "FullSystem/HessianBlocks.h"
 #include "FullSystem/ImmaturePoint.h"
@@ -113,6 +114,7 @@ void KeyFrameDisplay::setFromKF(FrameHessian* fh, CalibHessian* HCalib)
 		pc[numSparsePoints].relObsBaseline = 0;
 		pc[numSparsePoints].numGoodRes = 1;
 		pc[numSparsePoints].status = 0;
+		pc[numSparsePoints].label  = p->label;
 		numSparsePoints++;
 	}
 
@@ -127,7 +129,7 @@ void KeyFrameDisplay::setFromKF(FrameHessian* fh, CalibHessian* HCalib)
 		pc[numSparsePoints].idepth_hessian = p->idepth_hessian;
 		pc[numSparsePoints].numGoodRes =  0;
 		pc[numSparsePoints].status=1;
-
+		pc[numSparsePoints].label  = p->label;
 		numSparsePoints++;
 	}
 
@@ -232,7 +234,7 @@ bool KeyFrameDisplay::refreshPC(bool canRefresh, float scaledTH, float absTH, in
 			continue;
 
 
-		for(int pnt=0;pnt<patternNum;pnt++)
+		for(int pnt=0;pnt<patternNum;pnt++)//生成了八个点，这里要改掉
 		{
 
 			if(my_sparsifyFactor > 1 && rand()%my_sparsifyFactor != 0) continue;
@@ -247,37 +249,48 @@ bool KeyFrameDisplay::refreshPC(bool canRefresh, float scaledTH, float absTH, in
 
 			if(my_displayMode!=0)
 			{
-				if(originalInputSparse[i].status==0)//immaturePoints 淡蓝
+//				if(originalInputSparse[i].status==0)//immaturePoints 淡蓝
+//				{
+//					tmpColorBuffer[vertexBufferNumPoints][0] = 0;
+//					tmpColorBuffer[vertexBufferNumPoints][1] = 255;
+//					tmpColorBuffer[vertexBufferNumPoints][2] = 255;
+//				}
+//				else if(originalInputSparse[i].status==1)//pointHessians 绿色
+//				{
+//					tmpColorBuffer[vertexBufferNumPoints][0] = 0;
+//					tmpColorBuffer[vertexBufferNumPoints][1] = 255;
+//					tmpColorBuffer[vertexBufferNumPoints][2] = 0;
+//				}
+//				else if(originalInputSparse[i].status==2)//pointHessiansMarginalized 深蓝
+//				{
+//					tmpColorBuffer[vertexBufferNumPoints][0] = 0;
+//					tmpColorBuffer[vertexBufferNumPoints][1] = 0;
+//					tmpColorBuffer[vertexBufferNumPoints][2] = 255;
+//				}
+//				else if(originalInputSparse[i].status==3)//pointHessiansOut 红色
+//				{
+//					tmpColorBuffer[vertexBufferNumPoints][0] = 255;
+//					tmpColorBuffer[vertexBufferNumPoints][1] = 0;
+//					tmpColorBuffer[vertexBufferNumPoints][2] = 0;
+//				}
+//				else
+//				{
+//					tmpColorBuffer[vertexBufferNumPoints][0] = 255;
+//					tmpColorBuffer[vertexBufferNumPoints][1] = 255;
+//					tmpColorBuffer[vertexBufferNumPoints][2] = 255;
+//				}
+				if(originalInputSparse[i].label == Pixel_label::OTHERS)//immaturePoints 淡蓝
 				{
-					tmpColorBuffer[vertexBufferNumPoints][0] = 0;
+					tmpColorBuffer[vertexBufferNumPoints][0] = 255;
 					tmpColorBuffer[vertexBufferNumPoints][1] = 255;
 					tmpColorBuffer[vertexBufferNumPoints][2] = 255;
 				}
-				else if(originalInputSparse[i].status==1)//pointHessians 绿色
+				else if(originalInputSparse[i].label == Pixel_label::CROSSWALK)//pointHessians 绿色
 				{
 					tmpColorBuffer[vertexBufferNumPoints][0] = 0;
 					tmpColorBuffer[vertexBufferNumPoints][1] = 255;
 					tmpColorBuffer[vertexBufferNumPoints][2] = 0;
 				}
-				else if(originalInputSparse[i].status==2)//pointHessiansMarginalized 深蓝
-				{
-					tmpColorBuffer[vertexBufferNumPoints][0] = 0;
-					tmpColorBuffer[vertexBufferNumPoints][1] = 0;
-					tmpColorBuffer[vertexBufferNumPoints][2] = 255;
-				}
-				else if(originalInputSparse[i].status==3)//pointHessiansOut 红色
-				{
-					tmpColorBuffer[vertexBufferNumPoints][0] = 255;
-					tmpColorBuffer[vertexBufferNumPoints][1] = 0;
-					tmpColorBuffer[vertexBufferNumPoints][2] = 0;
-				}
-				else
-				{
-					tmpColorBuffer[vertexBufferNumPoints][0] = 255;
-					tmpColorBuffer[vertexBufferNumPoints][1] = 255;
-					tmpColorBuffer[vertexBufferNumPoints][2] = 255;
-				}
-
 
 
             }

@@ -1111,9 +1111,9 @@ void FullSystem::addActiveFrame( ImageAndExposure* image, ImageAndExposure* imag
 	fh_right->makeImages(image_right->image,&Hcalib);
 
 
-    for (int index = 0; index < wG[0] * hG[0]; index++) {
-        std::cout<< "now is pixel " << index << " color "<< fh->dI[index][0]<<std::endl;
-    }
+//    for (int index = 0; index < wG[0] * hG[0]; index++) {
+//        std::cout<< "now is pixel " << index << " color "<< fh->dI[index][0]<<std::endl;
+//    }
 
 
 	if(!initialized)
