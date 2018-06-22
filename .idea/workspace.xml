@@ -17,10 +17,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="501624d1-b8cb-4ebb-8583-12cb2aaa1ec7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FullSystem/CoarseInitializer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/FullSystem/CoarseInitializer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FullSystem/FullSystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/FullSystem/FullSystem.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FullSystem/PixelSelector2.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/FullSystem/PixelSelector2.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FullSystem/PixelSelector2.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/FullSystem/PixelSelector2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_dso_pangolin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_dso_pangolin.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,14 +34,14 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.51274985">
+    <splitter split-orientation="horizontal" split-proportion="0.587269">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="main_live.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main_live.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="55">
-                  <caret line="355" selection-start-line="355" selection-end-line="355" />
+                <state relative-caret-position="-1696">
+                  <caret line="387" column="19" selection-start-line="387" selection-start-column="19" selection-end-line="387" selection-end-column="19" />
                 </state>
               </provider>
             </entry>
@@ -47,8 +49,8 @@
           <file leaf-file-name="FullSystem.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/FullSystem/FullSystem.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="276">
-                  <caret line="1117" column="38" selection-start-line="1117" selection-start-column="38" selection-end-line="1117" selection-end-column="38" />
+                <state relative-caret-position="115">
+                  <caret line="1121" selection-start-line="1121" selection-end-line="1121" />
                 </state>
               </provider>
             </entry>
@@ -56,26 +58,8 @@
           <file leaf-file-name="HessianBlocks.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/FullSystem/HessianBlocks.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="874">
-                  <caret line="170" column="45" selection-start-line="170" selection-start-column="45" selection-end-line="170" selection-end-column="45" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="KeyFrameDisplay.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/IOWrapper/Pangolin/KeyFrameDisplay.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="480">
-                  <caret line="265" column="67" selection-start-line="265" selection-start-column="67" selection-end-line="265" selection-end-column="67" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="PangolinDSOViewer.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/IOWrapper/Pangolin/PangolinDSOViewer.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2329">
-                  <caret line="137" column="38" selection-start-line="137" selection-start-column="38" selection-end-line="137" selection-end-column="38" />
+                <state relative-caret-position="248">
+                  <caret line="127" column="25" selection-start-line="127" selection-start-column="25" selection-end-line="127" selection-end-column="25" />
                 </state>
               </provider>
             </entry>
@@ -83,8 +67,8 @@
           <file leaf-file-name="CoarseInitializer.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/FullSystem/CoarseInitializer.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="260">
-                  <caret line="806" column="9" lean-forward="true" selection-start-line="806" selection-start-column="9" selection-end-line="806" selection-end-column="9" />
+                <state relative-caret-position="175">
+                  <caret line="819" column="37" lean-forward="true" selection-start-line="819" selection-start-column="37" selection-end-line="819" selection-end-column="37" />
                 </state>
               </provider>
             </entry>
@@ -92,8 +76,17 @@
           <file leaf-file-name="PixelSelector2.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/FullSystem/PixelSelector2.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="328">
-                  <caret line="293" lean-forward="true" selection-start-line="293" selection-end-line="293" />
+                <state relative-caret-position="170">
+                  <caret line="291" column="26" lean-forward="true" selection-start-line="291" selection-start-column="26" selection-end-line="291" selection-end-column="26" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="main_dso_pangolin.cpp" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main_dso_pangolin.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="322">
+                  <caret line="384" column="5" selection-start-line="384" selection-start-column="5" selection-end-line="384" selection-end-column="5" />
                 </state>
               </provider>
             </entry>
@@ -101,8 +94,8 @@
           <file leaf-file-name="globalCalib.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/util/globalCalib.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="544">
-                  <caret line="45" column="58" lean-forward="true" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
+                <state relative-caret-position="487">
+                  <caret line="45" column="58" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
                 </state>
               </provider>
             </entry>
@@ -132,26 +125,29 @@
           <file leaf-file-name="HessianBlocks.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/FullSystem/HessianBlocks.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="170">
-                  <caret line="269" column="58" selection-start-line="269" selection-start-column="58" selection-end-line="269" selection-end-column="58" />
+                <state relative-caret-position="-497">
+                  <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ImmaturePoint.h" pinned="false" current-in-tab="false">
+          <file leaf-file-name="ImmaturePoint.h" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/FullSystem/ImmaturePoint.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="552">
-                  <caret line="106" column="16" selection-start-line="106" selection-start-column="16" selection-end-line="106" selection-end-column="16" />
+                <state relative-caret-position="627">
+                  <caret line="106" column="16" lean-forward="true" selection-start-line="106" selection-start-column="16" selection-end-line="106" selection-end-column="16" />
+                  <folding>
+                    <element signature="e#936#961#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="PixelSelector2.h" pinned="false" current-in-tab="true">
+          <file leaf-file-name="PixelSelector2.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/FullSystem/PixelSelector2.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="217">
-                  <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+                <state relative-caret-position="64">
+                  <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
                 </state>
               </provider>
             </entry>
@@ -159,7 +155,7 @@
           <file leaf-file-name="KeyFrameDisplay.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/IOWrapper/Pangolin/KeyFrameDisplay.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="427">
+                <state relative-caret-position="1921">
                   <caret line="113" column="16" selection-start-line="113" selection-start-column="16" selection-end-line="113" selection-end-column="16" />
                 </state>
               </provider>
@@ -168,7 +164,7 @@
           <file leaf-file-name="PangolinDSOViewer.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/IOWrapper/Pangolin/PangolinDSOViewer.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="219">
+                <state relative-caret-position="1819">
                   <caret line="107" column="10" selection-start-line="107" selection-start-column="10" selection-end-line="107" selection-end-column="10" />
                 </state>
               </provider>
@@ -223,11 +219,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/util/DatasetReader.h" />
-        <option value="$PROJECT_DIR$/src/main_dso_pangolin.cpp" />
         <option value="$PROJECT_DIR$/src/IOWrapper/Pangolin/KeyFrameDisplay.cpp" />
         <option value="$PROJECT_DIR$/src/main_live.cpp" />
         <option value="$PROJECT_DIR$/src/FullSystem/ImmaturePoint.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/start.sh" />
+        <option value="$PROJECT_DIR$/src/main_dso_pangolin.cpp" />
+        <option value="$PROJECT_DIR$/src/FullSystem/FullSystem.cpp" />
         <option value="$PROJECT_DIR$/src/FullSystem/PixelSelector2.h" />
         <option value="$PROJECT_DIR$/src/FullSystem/PixelSelector2.cpp" />
         <option value="$PROJECT_DIR$/src/FullSystem/CoarseInitializer.cpp" />
@@ -244,7 +242,7 @@
     <packageJsonPaths />
   </component>
   <component name="OCFindUsagesOptions" text="false" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="65" />
     <option name="y" value="24" />
     <option name="width" value="928" />
@@ -262,6 +260,17 @@
             <path>
               <item name="SDSO" type="b2602c69:ProjectViewProjectNode" />
               <item name="semanticDSO" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDSO" type="b2602c69:ProjectViewProjectNode" />
+              <item name="semanticDSO" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDSO" type="b2602c69:ProjectViewProjectNode" />
+              <item name="semanticDSO" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="FullSystem" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -290,10 +299,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.dso_live">
-    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="SDSO" RUN_TARGET_NAME="dso_live" EXPLICIT_BUILD_TARGET_NAME="all" />
-    <configuration name="dso" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SDSO" TARGET_NAME="dso" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="SDSO" RUN_TARGET_NAME="dso_live" />
-    <configuration name="dso_dataset" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SDSO" TARGET_NAME="dso_dataset" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="SDSO" RUN_TARGET_NAME="dso_live" />
+  <component name="RunManager" selected="Application.dso_dataset">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="SDSO" RUN_TARGET_NAME="dso_dataset" EXPLICIT_BUILD_TARGET_NAME="all" />
+    <configuration name="dso" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SDSO" TARGET_NAME="dso" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="SDSO" RUN_TARGET_NAME="dso_dataset" />
+    <configuration name="dso_dataset" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="files=$PROJECT_DIR$/../dataset/kitti/data_odometry_gray/dataset/sequences/00 calib=$PROJECT_DIR$/../dataset/kitti/data_odometry_gray/dataset/sequences/00/camera.txt preset=0 mode=1 nogui=1" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SDSO" TARGET_NAME="dso_dataset" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="SDSO" RUN_TARGET_NAME="dso_dataset" />
     <configuration name="dso_live" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SDSO" TARGET_NAME="dso_live" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="SDSO" RUN_TARGET_NAME="dso_live" />
     <list>
       <item itemvalue="Application.Build All" />
@@ -338,27 +347,28 @@
       <workItem from="1529321397891" duration="3000" />
       <workItem from="1529329718889" duration="7427000" />
       <workItem from="1529500781894" duration="11133000" />
+      <workItem from="1529629143221" duration="10417000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85327000" />
+    <option name="totallyTimeSpent" value="95744000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1204" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49951124" visible="true" weight="0.11000553" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49951124" visible="true" weight="0.080154784" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Messages" order="7" visible="true" weight="0.3001912" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.29956895" />
       <window_info anchor="bottom" id="CMake" order="7" weight="0.32907662" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.31548756" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32907662" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.31465518" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.27801725" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="right" id="Structure" order="3" sideWeight="0.50048876" side_tool="true" visible="true" weight="0.087893866" />
+      <window_info anchor="right" id="Structure" order="3" sideWeight="0.50048876" visible="true" weight="0.087893866" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.2416503" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.54310346" />
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -376,24 +386,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="13" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1989">
-          <caret line="117" column="6" selection-start-line="117" selection-start-column="6" selection-end-line="117" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main_dso_pangolin.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8194">
-          <caret line="482" column="32" lean-forward="true" selection-start-line="482" selection-start-column="32" selection-end-line="482" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FullSystem/FullSystem.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21097">
@@ -590,13 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main_dso_pangolin.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="374" column="41" selection-start-line="374" selection-start-column="41" selection-end-line="374" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/LiveReader.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -642,66 +631,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="35" lean-forward="true" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/IOWrapper/Pangolin/PangolinDSOViewer.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
+        <state relative-caret-position="1819">
           <caret line="107" column="10" selection-start-line="107" selection-start-column="10" selection-end-line="107" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main_live.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="355" selection-start-line="355" selection-end-line="355" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/IOWrapper/Pangolin/KeyFrameDisplay.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
+        <state relative-caret-position="4505">
           <caret line="265" column="67" selection-start-line="265" selection-start-column="67" selection-end-line="265" selection-end-column="67" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/IOWrapper/Pangolin/KeyFrameDisplay.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
+        <state relative-caret-position="1921">
           <caret line="113" column="16" selection-start-line="113" selection-start-column="16" selection-end-line="113" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FullSystem/ImmaturePoint.h">
+    <entry file="file://$PROJECT_DIR$/start.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="106" column="16" selection-start-line="106" selection-start-column="16" selection-end-line="106" selection-end-column="16" />
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FullSystem/FullSystem.cpp">
+    <entry file="file://$PROJECT_DIR$/src/util/globalCalib.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="1117" column="38" selection-start-line="1117" selection-start-column="38" selection-end-line="1117" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FullSystem/HessianBlocks.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="874">
-          <caret line="170" column="45" selection-start-line="170" selection-start-column="45" selection-end-line="170" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FullSystem/HessianBlocks.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="269" column="58" selection-start-line="269" selection-start-column="58" selection-end-line="269" selection-end-column="58" />
+        <state relative-caret-position="487">
+          <caret line="45" column="58" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -712,31 +673,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/globalCalib.h">
+    <entry file="file:///usr/include/x86_64-linux-gnu/bits/string3.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="45" column="58" lean-forward="true" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
+        <state relative-caret-position="151">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FullSystem/CoarseInitializer.cpp">
+    <entry file="file://$PROJECT_DIR$/src/main_live.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="806" column="9" lean-forward="true" selection-start-line="806" selection-start-column="9" selection-end-line="806" selection-end-column="9" />
+        <state relative-caret-position="-1696">
+          <caret line="387" column="19" selection-start-line="387" selection-start-column="19" selection-end-line="387" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main_dso_pangolin.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="384" column="5" selection-start-line="384" selection-start-column="5" selection-end-line="384" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FullSystem/HessianBlocks.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="127" column="25" selection-start-line="127" selection-start-column="25" selection-end-line="127" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="138" column="20" lean-forward="true" selection-start-line="138" selection-start-column="20" selection-end-line="138" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FullSystem/PixelSelector2.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+        <state relative-caret-position="64">
+          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FullSystem/FullSystem.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="1121" selection-start-line="1121" selection-end-line="1121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FullSystem/HessianBlocks.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-497">
+          <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FullSystem/ImmaturePoint.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="106" column="16" lean-forward="true" selection-start-line="106" selection-start-column="16" selection-end-line="106" selection-end-column="16" />
+          <folding>
+            <element signature="e#936#961#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FullSystem/CoarseInitializer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="819" column="37" lean-forward="true" selection-start-line="819" selection-start-column="37" selection-end-line="819" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FullSystem/PixelSelector2.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="293" lean-forward="true" selection-start-line="293" selection-end-line="293" />
+        <state relative-caret-position="170">
+          <caret line="291" column="26" lean-forward="true" selection-start-line="291" selection-start-column="26" selection-end-line="291" selection-end-column="26" />
         </state>
       </provider>
     </entry>

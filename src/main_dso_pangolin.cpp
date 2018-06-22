@@ -51,10 +51,8 @@
 #include "IOWrapper/Pangolin/PangolinDSOViewer.h"
 #include "IOWrapper/OutputWrapper/SampleOutputWrapper.h"
 
-#include <iostream>
-#include <stdio.h>
-#include <opencv2/opencv.hpp>
-#include <memory>
+#include <opencv/cv.hpp>
+#include <opencv/highgui.h>
 
 
 std::string vignette = "";
@@ -99,43 +97,42 @@ void exitThread()
 
 void settingsDefault(int preset)
 {
-
 	printf("\n=============== PRESET Settings: ===============\n");
 	if(preset == 0 || preset == 1)
 	{
 		printf("DEFAULT settings:\n"
-				"- %s real-time enforcing\n"
-				"- 2000 active points\n"
-				"- 5-7 active frames\n"
-				"- 1-6 LM iteration each KF\n"
-				"- original image resolution\n", preset==0 ? "no " : "1x");
+			   "- %s real-time enforcing\n"
+			   "- 2000 active points\n"
+			   "- 5-7 active frames\n"
+			   "- 1-6 LM iteration each KF\n"
+			   "- original image resolution\n", preset==0 ? "no " : "1x");
 
 		playbackSpeed = (preset==0 ? 0 : 1);
 		preload = preset==1;
 
-        setting_desiredImmatureDensity = 1500;    //original 1500. set higher
-        setting_desiredPointDensity = 2000;       //original 2000
-        setting_minFrames = 5;
-        setting_maxFrames = 7;
-        setting_maxOptIterations=6;
-        setting_minOptIterations=1;
+		setting_desiredImmatureDensity = 1500;    //original 1500. set higher
+		setting_desiredPointDensity = 2000;       //original 2000
+		setting_minFrames = 5;
+		setting_maxFrames = 7;
+		setting_maxOptIterations=6;
+		setting_minOptIterations=1;
 
-        setting_kfGlobalWeight=0.3;   // original is 1.0. 0.3 is a balance between speed and accuracy. if tracking lost, set this para higher
-        setting_maxShiftWeightT= 0.04f * (640 + 128);   // original is 0.04f * (640+480); this para is depend on the crop size.
-        setting_maxShiftWeightR= 0.04f * (640 + 128);    // original is 0.0f * (640+480);
-        setting_maxShiftWeightRT= 0.02f * (640 + 128);  // original is 0.02f * (640+480);
+		setting_kfGlobalWeight=0.3;   // original is 1.0. 0.3 is a balance between speed and accuracy. if tracking lost, set this para higher
+		setting_maxShiftWeightT= 0.04f * (640 + 128);   // original is 0.04f * (640+480); this para is depend on the crop size.
+		setting_maxShiftWeightR= 0.04f * (640 + 128);    // original is 0.0f * (640+480);
+		setting_maxShiftWeightRT= 0.02f * (640 + 128);  // original is 0.02f * (640+480);
 
-        setting_logStuff = false;
+		setting_logStuff = false;
 	}
 
 	if(preset == 2 || preset == 3)
 	{
 		printf("FAST settings:\n"
-				"- %s real-time enforcing\n"
-				"- 800 active points\n"
-				"- 4-6 active frames\n"
-				"- 1-4 LM iteration each KF\n"
-				"- 424 x 320 image resolution\n", preset==0 ? "no " : "5x");
+			   "- %s real-time enforcing\n"
+			   "- 800 active points\n"
+			   "- 4-6 active frames\n"
+			   "- 1-4 LM iteration each KF\n"
+			   "- 424 x 320 image resolution\n", preset==0 ? "no " : "5x");
 
 		playbackSpeed = (preset==2 ? 0 : 5);
 		preload = preset==3;
@@ -146,7 +143,7 @@ void settingsDefault(int preset)
 		setting_maxOptIterations=4;
 		setting_minOptIterations=1;
 
-		benchmarkSetting_width =  424;
+		benchmarkSetting_width = 424;
 		benchmarkSetting_height = 320;
 
 		setting_logStuff = false;
@@ -360,12 +357,6 @@ int main( int argc, char** argv )
 	for(int i=1; i<argc;i++)
 		parseArgument(argv[i]);
 
-
-
-
-    cv::Mat cv_image_left,cv_image_right;
-
-
 	// hook crtl+C.
 	boost::thread exThread = boost::thread(exitThread);
 
@@ -411,50 +402,50 @@ int main( int argc, char** argv )
 
 		int linc = 1;
 
-//		for(int i=lstart;i>= 0 && i< reader->getNumImages() && linc*i < linc*lend;i+=linc)
-//		{
-//			idsToPlay.push_back(i);
-//			if(timesToPlayAt.size() == 0)
-//			{
-//				timesToPlayAt.push_back((double)0);
-//			}
-//			else
-//			{
-//				double tsThis = reader->getTimestamp(idsToPlay[idsToPlay.size()-1]);
-//				double tsPrev = reader->getTimestamp(idsToPlay[idsToPlay.size()-2]);
-//				timesToPlayAt.push_back(timesToPlayAt.back() +  fabs(tsThis-tsPrev)/playbackSpeed);
-//			}
-//		}
-//
-//		for(int i=lstart;i>= 0 && i< reader_right->getNumImages() && linc*i < linc*lend;i+=linc)
-//		{
-//			idsToPlayRight.push_back(i);
-//			if(timesToPlayAtRight.size() == 0)
-//			{
-//				timesToPlayAtRight.push_back((double)0);
-//			}
-//			else
-//			{
-//				double tsThis = reader_right->getTimestamp(idsToPlay[idsToPlay.size()-1]);
-//				double tsPrev = reader_right->getTimestamp(idsToPlay[idsToPlay.size()-2]);
-//				timesToPlayAtRight.push_back(timesToPlayAtRight.back() +  fabs(tsThis-tsPrev)/playbackSpeed);
-//			}
-//		}
+		for(int i=lstart;i>= 0 && i< reader->getNumImages() && linc*i < linc*lend;i+=linc)
+		{
+			idsToPlay.push_back(i);
+			if(timesToPlayAt.size() == 0)
+			{
+				timesToPlayAt.push_back((double)0);
+			}
+			else
+			{
+				double tsThis = reader->getTimestamp(idsToPlay[idsToPlay.size()-1]);
+				double tsPrev = reader->getTimestamp(idsToPlay[idsToPlay.size()-2]);
+				timesToPlayAt.push_back(timesToPlayAt.back() +  fabs(tsThis-tsPrev)/playbackSpeed);
+			}
+		}
+
+		for(int i=lstart;i>= 0 && i< reader_right->getNumImages() && linc*i < linc*lend;i+=linc)
+		{
+			idsToPlayRight.push_back(i);
+			if(timesToPlayAtRight.size() == 0)
+			{
+				timesToPlayAtRight.push_back((double)0);
+			}
+			else
+			{
+				double tsThis = reader_right->getTimestamp(idsToPlay[idsToPlay.size()-1]);
+				double tsPrev = reader_right->getTimestamp(idsToPlay[idsToPlay.size()-2]);
+				timesToPlayAtRight.push_back(timesToPlayAtRight.back() +  fabs(tsThis-tsPrev)/playbackSpeed);
+			}
+		}
 
 
 
-//		std::vector<ImageAndExposure*> preloadedImagesLeft;
-//		std::vector<ImageAndExposure*> preloadedImagesRight;
-//		if(preload)
-//		{
-//			printf("LOADING ALL IMAGES!\n");
-//			for(int ii=0;ii<(int)idsToPlay.size(); ii++)
-//			{
-//				int i = idsToPlay[ii];
-//				preloadedImagesLeft.push_back(reader->getImage(i));
-//				preloadedImagesRight.push_back(reader_right->getImage(i));
-//			}
-//		}
+		std::vector<ImageAndExposure*> preloadedImagesLeft;
+		std::vector<ImageAndExposure*> preloadedImagesRight;
+		if(preload)
+		{
+			printf("LOADING ALL IMAGES!\n");
+			for(int ii=0;ii<(int)idsToPlay.size(); ii++)
+			{
+				int i = idsToPlay[ii];
+				preloadedImagesLeft.push_back(reader->getImage(i));
+				preloadedImagesRight.push_back(reader_right->getImage(i));
+			}
+		}
 
 		// timing
 		struct timeval tv_start;
@@ -463,78 +454,43 @@ int main( int argc, char** argv )
 		double sInitializerOffset=0;
 
 
-		for(int ii=0; ; ii++)
+		for(int ii=0; ii<(int)idsToPlay.size(); ii++)
 		{
-//			if(!fullSystem->initialized)	// if not initialized: reset start time.
-//			{
-//				gettimeofday(&tv_start, NULL);
-//				started = clock();
-//				sInitializerOffset = timesToPlayAt[ii];
-//			}
+			if(!fullSystem->initialized)	// if not initialized: reset start time.
+			{
+				gettimeofday(&tv_start, NULL);
+				started = clock();
+				sInitializerOffset = timesToPlayAt[ii];
+			}
 
-			//int i = idsToPlay[ii];
-            int i = ii;
+			int i = idsToPlay[ii];
+
 
 			ImageAndExposure* img_left;
 			ImageAndExposure* img_right;
-
-
-            cv_image_left = cv::imread(reader->files[i], CV_LOAD_IMAGE_GRAYSCALE);
-            cv_image_right = cv::imread(reader_right->files[i], CV_LOAD_IMAGE_GRAYSCALE);
-
-
-
-            if(cv_image_left.rows*cv_image_left.cols==0)
-            {
-                printf("cv::imread could not read image %s! this may segfault. \n", reader->files[i].c_str());
-                return 0;
-            }
-            if(cv_image_left.type() != CV_8U)
-            {
-                printf("cv::imread did something strange! this may segfault. \n");
-                return 0;
-            }
-            MinimalImageB* img = new MinimalImageB(cv_image_left.cols, cv_image_left.rows);
-            memcpy(img->data, cv_image_left.data, cv_image_left.rows*cv_image_left.cols);
-
-            img_left = reader->undistort->undistort<unsigned char>(img,1, 0, 1.0f);
-
-            delete img;
-
-            if(cv_image_right.rows*cv_image_right.cols==0)
-            {
-                printf("cv::imread could not read image %s! this may segfault. \n", reader_right->files[i].c_str());
-                return 0;
-            }
-            if(cv_image_right.type() != CV_8U)
-            {
-                printf("cv::imread did something strange! this may segfault. \n");
-                return 0;
-            }
-            MinimalImageB* img_r = new MinimalImageB(cv_image_right.cols, cv_image_right.rows);
-            memcpy(img_r->data, cv_image_right.data, cv_image_right.rows*cv_image_right.cols);
-
-            img_right = reader_right->undistort->undistort<unsigned char>(img_r,1, 0, 1.0f);
-
-            delete img_r;
-
-
-
+			if(preload){
+				img_left = preloadedImagesLeft[ii];
+				img_right = preloadedImagesRight[ii];
+			}
+			else{
+				img_left = reader->getImage(i);
+				img_right = reader_right->getImage(i);
+			}
 
 			bool skipFrame=false;
-//			if(playbackSpeed!=0)
-//			{
-//				struct timeval tv_now; gettimeofday(&tv_now, NULL);
-//				double sSinceStart = sInitializerOffset + ((tv_now.tv_sec-tv_start.tv_sec) + (tv_now.tv_usec-tv_start.tv_usec)/(1000.0f*1000.0f));
-//
-//				if(sSinceStart < timesToPlayAt[ii])
-//					usleep((int)((timesToPlayAt[ii]-sSinceStart)*1000*1000));
-//				else if(sSinceStart > timesToPlayAt[ii]+0.5+0.1*(ii%2))
-//				{
-//					printf("SKIPFRAME %d (play at %f, now it is %f)!\n", ii, timesToPlayAt[ii], sSinceStart);
-//					skipFrame=true;
-//				}
-//			}
+			if(playbackSpeed!=0)
+			{
+				struct timeval tv_now; gettimeofday(&tv_now, NULL);
+				double sSinceStart = sInitializerOffset + ((tv_now.tv_sec-tv_start.tv_sec) + (tv_now.tv_usec-tv_start.tv_usec)/(1000.0f*1000.0f));
+
+				if(sSinceStart < timesToPlayAt[ii])
+					usleep((int)((timesToPlayAt[ii]-sSinceStart)*1000*1000));
+				else if(sSinceStart > timesToPlayAt[ii]+0.5+0.1*(ii%2))
+				{
+					printf("SKIPFRAME %d (play at %f, now it is %f)!\n", ii, timesToPlayAt[ii], sSinceStart);
+					skipFrame=true;
+				}
+			}
 
 			// if MODE_SLAM is true, it runs slam.
 			bool MODE_SLAM = true;
@@ -603,32 +559,32 @@ int main( int argc, char** argv )
 		fullSystem->printResult("/home/jiatianwu/project/sdso/result.txt");
 
 
-//		int numFramesProcessed = abs(idsToPlay[0]-idsToPlay.back());
-//		double numSecondsProcessed = fabs(reader->getTimestamp(idsToPlay[0])-reader->getTimestamp(idsToPlay.back()));
-//		double MilliSecondsTakenSingle = 1000.0f*(ended-started)/(float)(CLOCKS_PER_SEC);
-//		double MilliSecondsTakenMT = sInitializerOffset + ((tv_end.tv_sec-tv_start.tv_sec)*1000.0f + (tv_end.tv_usec-tv_start.tv_usec)/1000.0f);
-//		printf("\n======================"
-//			   "\n%d Frames (%.1f fps)"
-//			   "\n%.2fms per frame (single core); "
-//			   "\n%.2fms per frame (multi core); "
-//			   "\n%.3fx (single core); "
-//			   "\n%.3fx (multi core); "
-//			   "\n======================\n\n",
-//			   numFramesProcessed, numFramesProcessed/numSecondsProcessed,
-//			   MilliSecondsTakenSingle/numFramesProcessed,
-//			   MilliSecondsTakenMT / (float)numFramesProcessed,
-//			   1000 / (MilliSecondsTakenSingle/numSecondsProcessed),
-//			   1000 / (MilliSecondsTakenMT / numSecondsProcessed));
-//		//fullSystem->printFrameLifetimes();
-//		if(setting_logStuff)
-//		{
-//			std::ofstream tmlog;
-//			tmlog.open("logs/time.txt", std::ios::trunc | std::ios::out);
-//			tmlog << 1000.0f*(ended-started)/(float)(CLOCKS_PER_SEC*reader->getNumImages()) << " "
-//				  << ((tv_end.tv_sec-tv_start.tv_sec)*1000.0f + (tv_end.tv_usec-tv_start.tv_usec)/1000.0f) / (float)reader->getNumImages() << "\n";
-//			tmlog.flush();
-//			tmlog.close();
-//		}
+		int numFramesProcessed = abs(idsToPlay[0]-idsToPlay.back());
+		double numSecondsProcessed = fabs(reader->getTimestamp(idsToPlay[0])-reader->getTimestamp(idsToPlay.back()));
+		double MilliSecondsTakenSingle = 1000.0f*(ended-started)/(float)(CLOCKS_PER_SEC);
+		double MilliSecondsTakenMT = sInitializerOffset + ((tv_end.tv_sec-tv_start.tv_sec)*1000.0f + (tv_end.tv_usec-tv_start.tv_usec)/1000.0f);
+		printf("\n======================"
+			   "\n%d Frames (%.1f fps)"
+			   "\n%.2fms per frame (single core); "
+			   "\n%.2fms per frame (multi core); "
+			   "\n%.3fx (single core); "
+			   "\n%.3fx (multi core); "
+			   "\n======================\n\n",
+			   numFramesProcessed, numFramesProcessed/numSecondsProcessed,
+			   MilliSecondsTakenSingle/numFramesProcessed,
+			   MilliSecondsTakenMT / (float)numFramesProcessed,
+			   1000 / (MilliSecondsTakenSingle/numSecondsProcessed),
+			   1000 / (MilliSecondsTakenMT / numSecondsProcessed));
+		//fullSystem->printFrameLifetimes();
+		if(setting_logStuff)
+		{
+			std::ofstream tmlog;
+			tmlog.open("logs/time.txt", std::ios::trunc | std::ios::out);
+			tmlog << 1000.0f*(ended-started)/(float)(CLOCKS_PER_SEC*reader->getNumImages()) << " "
+				  << ((tv_end.tv_sec-tv_start.tv_sec)*1000.0f + (tv_end.tv_usec-tv_start.tv_usec)/1000.0f) / (float)reader->getNumImages() << "\n";
+			tmlog.flush();
+			tmlog.close();
+		}
 
 	});
 
@@ -653,5 +609,3 @@ int main( int argc, char** argv )
 	printf("EXIT NOW!\n");
 	return 0;
 }
-
-

@@ -802,6 +802,7 @@ void CoarseInitializer::setFirstStereo(	CalibHessian* HCalib, FrameHessian* newF
 		{
 			npts = sel.makeMaps(firstFrame, statusMap,densities[lvl]*w[0]*h[0],1,false,2);
             sel.makesemanticMaps(firstFrame,semanticMap);
+            //delete[] semanticMap;
 		}
 		else
 		{
@@ -824,6 +825,7 @@ void CoarseInitializer::setFirstStereo(	CalibHessian* HCalib, FrameHessian* newF
 
 			    pt->u_stereo = pt->u;
 		        pt->v_stereo = pt->v;
+
                 pt->idepth_min_stereo = 0;
                 pt->idepth_max_stereo = NAN;
 			    ImmaturePointStatus stat = pt->traceStereo(firstRightFrame, K, 1);

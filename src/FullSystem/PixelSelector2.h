@@ -30,7 +30,7 @@ namespace dso
 {
 
 enum PixelSelectorStatus {PIXSEL_VOID=0, PIXSEL_1, PIXSEL_2, PIXSEL_3};
-enum Pixel_label {CROSSWALK=0, OTHERS};
+enum Pixel_label {OTHERS=0,CROSSWALK};
 
 
 class FrameHessian;
