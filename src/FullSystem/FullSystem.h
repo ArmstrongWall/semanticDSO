@@ -268,6 +268,7 @@ private:
 	IndexThreadReduce<Vec10> treadReduce;
 
 	float* selectionMap;
+	char*  semanticMap;
 	PixelSelector* pixelSelector;
 	CoarseDistanceMap* coarseDistanceMap;
 

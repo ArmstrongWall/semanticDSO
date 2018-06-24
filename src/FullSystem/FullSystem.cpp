@@ -132,8 +132,8 @@ FullSystem::FullSystem()
 	assert(retstat!=293847);
 
 
-
 	selectionMap = new float[wG[0]*hG[0]];
+	semanticMap  = new char[wG[0]*hG[0]];
 
 	coarseDistanceMap = new CoarseDistanceMap(wG[0], hG[0]);
 	coarseTracker = new CoarseTracker(wG[0], hG[0]);
@@ -1517,7 +1517,7 @@ void FullSystem::initializeFromInitializer(FrameHessian* newFrame)
 
 		Pnt* point = coarseInitializer->points[0]+i;
 		ImmaturePoint* pt = new ImmaturePoint(point->u+0.5f,point->v+0.5f,firstFrame,point->my_type, &Hcalib);
-
+		//pt host frame is firstFrame
         pt->u_stereo = pt->u;
         pt->v_stereo = pt->v;
         pt->idepth_min_stereo = 0;
@@ -1527,7 +1527,7 @@ void FullSystem::initializeFromInitializer(FrameHessian* newFrame)
 
         pt->idepth_min = pt->idepth_min_stereo;
         pt->idepth_max = pt->idepth_max_stereo;
-        idepthStereo = pt->idepth_stereo;
+        idepthStereo =   pt->idepth_stereo;
 
 
 		if(!std::isfinite(pt->energyTH) || !std::isfinite(pt->idepth_min) || !std::isfinite(pt->idepth_max)
@@ -1535,10 +1535,9 @@ void FullSystem::initializeFromInitializer(FrameHessian* newFrame)
         {
             delete pt;
             continue;
-
         }
 
-		PointHessian* ph = new PointHessian(pt, &Hcalib);
+		PointHessian* ph = new PointHessian(pt, &Hcalib);//new a ImmaturePoint is used to creat a PointHessian
 		delete pt;
 		if(!std::isfinite(ph->energyTH)) {delete ph; continue;}
 
@@ -1546,7 +1545,6 @@ void FullSystem::initializeFromInitializer(FrameHessian* newFrame)
         ph->setIdepthZero(idepthStereo);
 		ph->hasDepthPrior=true;
 		ph->setPointStatus(PointHessian::ACTIVE);
-
 
 		firstFrame->pointHessians.push_back(ph);
 		ef->insertPoint(ph);
@@ -1580,6 +1578,8 @@ void FullSystem::makeNewTraces(FrameHessian* newFrame, FrameHessian* newFrameRig
 	pixelSelector->allowFast = true;
 	//int numPointsTotal = makePixelStatus(newFrame->dI, selectionMap, wG[0], hG[0], setting_desiredDensity);
 	int numPointsTotal = pixelSelector->makeMaps(newFrame, selectionMap,setting_desiredImmatureDensity);
+	pixelSelector->makesemanticMaps(newFrame,semanticMap);
+
 
 	newFrame->pointHessians.reserve(numPointsTotal*1.2f);
 	//fh->pointHessiansInactive.reserve(numPointsTotal*1.2f);
@@ -1593,6 +1593,7 @@ void FullSystem::makeNewTraces(FrameHessian* newFrame, FrameHessian* newFrameRig
 		if(selectionMap[i]==0) continue;
 
 		ImmaturePoint* impt = new ImmaturePoint(x,y,newFrame, selectionMap[i], &Hcalib);
+		impt->label = semanticMap[i];
 
 		if(!std::isfinite(impt->energyTH)) delete impt;
 		else newFrame->immaturePoints.push_back(impt);

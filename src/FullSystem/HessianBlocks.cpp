@@ -38,6 +38,7 @@ PointHessian::PointHessian(const ImmaturePoint* const rawPoint, CalibHessian* Hc
 	host = rawPoint->host;
 	hasDepthPrior=false;
 
+	label = rawPoint->label;
 	idepth_hessian=0;
 	maxRelBaseline=0;
 	numGoodResiduals=0;

@@ -802,7 +802,7 @@ void CoarseInitializer::setFirstStereo(	CalibHessian* HCalib, FrameHessian* newF
 		{
 			npts = sel.makeMaps(firstFrame, statusMap,densities[lvl]*w[0]*h[0],1,false,2);
             sel.makesemanticMaps(firstFrame,semanticMap);
-            //delete[] semanticMap;
+
 		}
 		else
 		{
@@ -938,6 +938,7 @@ void CoarseInitializer::setFirstStereo(	CalibHessian* HCalib, FrameHessian* newF
 	}
 
 	delete[] statusMap;
+    delete[] semanticMap;
 	delete[] statusMapB;
 
 	makeNN();
