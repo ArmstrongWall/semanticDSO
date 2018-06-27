@@ -144,6 +144,7 @@ void KeyFrameDisplay::setFromKF(FrameHessian* fh, CalibHessian* HCalib)
 		pc[numSparsePoints].idepth_hessian = p->idepth_hessian;
 		pc[numSparsePoints].numGoodRes =  0;
 		pc[numSparsePoints].status=2;
+        pc[numSparsePoints].label  = p->label;
 		numSparsePoints++;
 	}
 
@@ -158,6 +159,7 @@ void KeyFrameDisplay::setFromKF(FrameHessian* fh, CalibHessian* HCalib)
 		pc[numSparsePoints].idepth_hessian = p->idepth_hessian;
 		pc[numSparsePoints].numGoodRes =  0;
 		pc[numSparsePoints].status=3;
+        pc[numSparsePoints].label  = p->label;
 		numSparsePoints++;
 	}
 	assert(numSparsePoints <= npoints);
@@ -251,15 +253,15 @@ bool KeyFrameDisplay::refreshPC(bool canRefresh, float scaledTH, float absTH, in
 			{
 //				if(originalInputSparse[i].status==0)//immaturePoints 淡蓝
 //				{
-//					tmpColorBuffer[vertexBufferNumPoints][0] = 0;
+//					tmpColorBuffer[vertexBufferNumPoints][0] = 255;
 //					tmpColorBuffer[vertexBufferNumPoints][1] = 255;
 //					tmpColorBuffer[vertexBufferNumPoints][2] = 255;
 //				}
 //				else if(originalInputSparse[i].status==1)//pointHessians 绿色
 //				{
-//					tmpColorBuffer[vertexBufferNumPoints][0] = 0;
+//					tmpColorBuffer[vertexBufferNumPoints][0] = 255;
 //					tmpColorBuffer[vertexBufferNumPoints][1] = 255;
-//					tmpColorBuffer[vertexBufferNumPoints][2] = 0;
+//					tmpColorBuffer[vertexBufferNumPoints][2] = 255;
 //				}
 //				else if(originalInputSparse[i].status==2)//pointHessiansMarginalized 深蓝
 //				{
