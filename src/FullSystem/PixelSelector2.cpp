@@ -296,14 +296,15 @@ void PixelSelector::makesemanticMaps(const FrameHessian* const fh,char* semantic
         std::cout << "ERROR! blank frame grabbed" << std::endl;
         return;
     }
-    cv::Mat roi = frame;
-    cv::threshold(roi, roi, 50, 255, CV_THRESH_BINARY);   //灰度变二值
+//    cv::Mat roi = frame;
+//    cv::threshold(roi, roi, 50, 255, CV_THRESH_BINARY);   //灰度变二值
+    cv::Mat roi_frame = frame(cv::Rect(0,320,w,160));
 
     cv::Mat CannyImg;
-    cv::Canny(frame, CannyImg, 50, 10, 3);//canny 算子 上下阈值越大，边缘就越少
-    cv::Mat DstImg = frame;
+    cv::Canny(roi_frame, CannyImg, 50, 10, 3);//canny 算子 上下阈值越大，边缘就越少
+    //cv::Mat DstImg = roi_frame;
     std::vector<cv::Vec4d> Lines;
-    cv::HoughLinesP(CannyImg, Lines, 1, CV_PI / 360, 170,200,15);
+    cv::HoughLinesP(CannyImg, Lines, 1, CV_PI / 360, 170,100,15);
 
     for (auto lines : Lines)
     {
@@ -311,7 +312,7 @@ void PixelSelector::makesemanticMaps(const FrameHessian* const fh,char* semantic
             for (auto x = static_cast<int>(lines[0]); x < lines[2]; x++) {
                 double k = (lines[1] - lines[3])/(lines[0] - lines[2]);
                 auto y =  static_cast<int>(k*(x - lines[2]) + (lines[3]));
-                semanticMap_out[x+y*frame.cols] = CROSSWALK;
+                semanticMap_out[x+(y+320)*frame.cols] = CROSSWALK;
             }
         }
     }
