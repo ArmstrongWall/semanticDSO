@@ -1,4 +1,4 @@
-SET(PROJECT_NAME SDSO)
+SET(PROJECT_NAME SematicDSO)
 
 PROJECT(${PROJECT_NAME})
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
@@ -59,7 +59,7 @@ include_directories(
   ${PROJECT_SOURCE_DIR}/src
   ${PROJECT_SOURCE_DIR}/thirdparty/Sophus
   ${EIGEN3_INCLUDE_DIR}
-) 
+)
 
 
 # decide if we have pangolin

@@ -804,7 +804,7 @@ void EnergyFunctional::solveSystemF(int iteration, double lambda, CalibHessian* 
 
 
 	MatXX HFinal_top;
-	VecX bFinal_top;
+	VecX  bFinal_top;
 
 	if(setting_solverMode & SOLVER_ORTHOGONALIZE_SYSTEM)
 	{

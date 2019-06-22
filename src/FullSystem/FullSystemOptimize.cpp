@@ -532,6 +532,8 @@ float FullSystem::optimize(int mnumOptIts)
 
 			lambda *= 0.25;
 		}
+
+
 		else
 		{
 			loadSateBackup();

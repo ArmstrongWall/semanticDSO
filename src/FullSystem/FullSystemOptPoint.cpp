@@ -64,6 +64,9 @@ PointHessian* FullSystem::optimizeImmaturePoint(
 			nres++;
 		}
 	}
+
+//	std::cout << "nres" << nres << std::endl;
+
 	assert(nres == ((int)frameHessians.size())-1);
 
 	bool print = false;//rand()%50==0;
@@ -71,7 +74,7 @@ PointHessian* FullSystem::optimizeImmaturePoint(
 	float lastEnergy = 0;
 	float lastHdd=0;
 	float lastbd=0;
-	float currentIdepth=(point->idepth_max+point->idepth_min)*0.5f;
+	float currentIdepth = (point->idepth_max+point->idepth_min)*0.5f;
 
 
 
@@ -96,6 +99,8 @@ PointHessian* FullSystem::optimizeImmaturePoint(
 	if(print) printf("Activate point. %d residuals. H=%f. Initial Energy: %f. Initial Id=%f\n" ,
 			nres, lastHdd,lastEnergy,currentIdepth);
 
+
+	// 优化深度值
 	float lambda = 0.1;
 	for(int iteration=0;iteration<setting_GNItsOnPointActivation;iteration++)
 	{
@@ -165,7 +170,7 @@ PointHessian* FullSystem::optimizeImmaturePoint(
 	}
 
 
-
+	// 新建一个PointHessian
 	PointHessian* p = new PointHessian(point, &Hcalib);
 	if(!std::isfinite(p->energyTH)) {delete p; return (PointHessian*)((long)(-1));}
 

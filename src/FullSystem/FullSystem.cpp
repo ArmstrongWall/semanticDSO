@@ -441,6 +441,7 @@ Vec4 FullSystem::trackNewCoarse(FrameHessian* fh, FrameHessian* fh_right)
 	// I'll keep track of the so-far best achieved residual for each level in achievedRes.
 	// If on a coarse level, tracking is WORSE than achievedRes, we will not continue to save time.
 
+	std::cout<< "lastF_2_fh_tries.size()" << lastF_2_fh_tries.size() <<"\n";
 
 	Vec5 achievedRes = Vec5::Constant(NAN);
 	bool haveOneGood = false;
@@ -497,8 +498,10 @@ Vec4 FullSystem::trackNewCoarse(FrameHessian* fh, FrameHessian* fh_right)
 		}
 
 
-        if(haveOneGood &&  achievedRes[0] < lastCoarseRMSE[0]*setting_reTrackThreshold)
-            break;
+        if(haveOneGood &&  achievedRes[0] < lastCoarseRMSE[0]*setting_reTrackThreshold) {
+			printf("tracking success.\n");
+			break;
+		}
 
 	}
 
@@ -1010,7 +1013,7 @@ void FullSystem::flagPointsForRemoval()
 
 	for(FrameHessian* host : frameHessians)		// go through all active frames
 	{
-		for(unsigned int i=0;i<host->pointHessians.size();i++)
+		for(unsigned int i=0;i<host->pointHessians.size();i++)// 遍历所有的地图点
 		{
 			PointHessian* ph = host->pointHessians[i];
 			if(ph==0) continue;
@@ -1367,7 +1370,7 @@ void FullSystem::makeKeyFrame( FrameHessian* fh, FrameHessian* fh_right)
 
 
 	// =========================== Activate Points (& flag for marginalization). =========================
-	activatePointsMT();
+	activatePointsMT();// 新建了PointHessian
 	ef->makeIDX();
 
 
